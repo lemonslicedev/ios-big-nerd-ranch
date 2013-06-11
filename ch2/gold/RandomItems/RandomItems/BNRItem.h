@@ -10,10 +10,14 @@
 
 @interface BNRItem : NSObject
 {
+    //Since we have properties its not necessary to declare variables here.
     NSString *itemName;
     NSString * serialNumber;
     int valueInDollars;
     NSDate *dateCreated;
+    
+    BNRItem *containedItem;
+    __weak BNRItem *container;
 }
 
 + (id)randomItem;
@@ -26,14 +30,12 @@
 
 - (id)initWithItemName: (NSString *)name serialNumber: (NSString *)sNumber;
 
-- (void)setItemName: (NSString *)str;
-- (NSString *)itemName;
+@property (nonatomic, strong) BNRItem *containedItem;
+@property (nonatomic, weak) BNRItem *container;
 
-- (void)setSerialNumber: (NSString *)str;
-- (NSString *)serialNumber;
+@property (nonatomic, strong) NSString *itemName;
+@property (nonatomic, strong) NSString *serialNumber;
+@property (nonatomic) int valueInDollars;
+@property (nonatomic, readonly, strong) NSDate *dateCreated;
 
-- (void)setValueInDollars: (int)i;
-- (int)valueInDollars;
-
-- (NSDate *)dateCreated;
 @end

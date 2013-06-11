@@ -15,6 +15,7 @@ int main(int argc, const char * argv[])
     
     @autoreleasepool {
         //Stuff In My Room
+        /*
         BNRItem *blueFuton = [[BNRItem alloc] initWithItemName:@"Blue Futon" valueInDollars:100 serialNumber:@"A1B2C"];
         
         BNRItem *silverMac = [[BNRItem alloc] initWithItemName:@"Silver MacBook Pro" valueInDollars:1500 serialNumber:@"L337"];
@@ -37,6 +38,21 @@ int main(int argc, const char * argv[])
         BNRContainer *stuffInMyHouse = [[BNRContainer alloc] initWithContainerName:@"Stuff In My House" subItems:stuff];
         
         NSLog(@"%@", stuffInMyHouse);
+        
+        items = nil;
+         */
+        
+        NSMutableArray *items = [[NSMutableArray alloc] init];
+        
+        BNRItem *backpack = [[BNRItem alloc] init];
+        [backpack setItemName:@"Backpack"];
+        [items addObject:backpack];
+        
+        BNRItem *calculator = [[BNRItem alloc] init];
+        [calculator setItemName:@"Calculator"];
+        [items addObject:calculator];
+        
+        [backpack setContainedItem:calculator];
     }
     return 0;
 }
